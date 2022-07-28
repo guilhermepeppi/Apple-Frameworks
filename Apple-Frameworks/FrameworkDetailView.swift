@@ -10,6 +10,7 @@ import SwiftUI
 struct FrameworkDetailView: View {
     
     var framework: Framework
+    @Binding var isShowingDeailView: Bool
     
     var body: some View {
         VStack {
@@ -18,7 +19,7 @@ struct FrameworkDetailView: View {
                 Spacer()
                 
                 Button {
-                   
+                   isShowingDeailView = true
                 } label: {
                     Image(systemName: "xmark")
                         .foregroundColor(Color(.label))
