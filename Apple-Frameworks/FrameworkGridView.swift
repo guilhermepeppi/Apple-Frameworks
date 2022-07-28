@@ -30,7 +30,7 @@ struct FrameworkGridView: View {
             }
                 .navigationTitle("Apple Frameworks")
                 .sheet(isPresented: $viewModel.isShowingDeatilView) {
-                    FrameworkDetailView(framework: viewModel.selectedFramework!, isShowingDeailView: $viewModel)
+                    FrameworkDetailView(framework: viewModel.selectedFramework!, isShowingDeailView: $viewModel.isShowingDeatilView)
                 }
        }
     }

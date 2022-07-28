@@ -11,6 +11,7 @@ struct FrameworkDetailView: View {
     
     var framework: Framework
     @Binding var isShowingDeailView: Bool
+    @State private var isShowsingSafariView = false
     
     var body: some View {
         VStack {
@@ -19,7 +20,7 @@ struct FrameworkDetailView: View {
                 Spacer()
                 
                 Button {
-                   isShowingDeailView = true
+                   isShowingDeailView = false
                 } label: {
                     Image(systemName: "xmark")
                         .foregroundColor(Color(.label))
@@ -40,18 +41,21 @@ struct FrameworkDetailView: View {
             Spacer()
             
             Button {
-                
+                isShowsingSafariView = true
             } label: {
                AFButton(title: "Lean More")
                     
             }
         }
+        .sheet(isPresented: $isShowsingSafariView, content: { SafariView(url: URL(string: framework.urlString) ?? URL(string: "www.apple.com")!)
+            
+        })
     }
 }
 
 struct FrameworkDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        FrameworkDetailView(framework: MockData.sampleFramework)
+        FrameworkDetailView(framework: MockData.sampleFramework, isShowingDeailView: .constant(false))
             .preferredColorScheme(.dark)
     }
 }
