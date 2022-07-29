@@ -14,23 +14,7 @@ struct FrameworkDetailView: View {
     @State private var isShowsingSafariView = false
     
     var body: some View {
-        VStack {
-            HStack {
-                
-                Spacer()
-                
-                Button {
-                   isShowingDeailView = false
-                } label: {
-                    Image(systemName: "xmark")
-                        .foregroundColor(Color(.label))
-                        .imageScale(.large)
-                        .frame(width: 44, height: 44)
-                    
-                }
-            }
-            .padding()
-            
+        VStack {            
             Spacer()
             
             FrameworkTitleView(framework: framework)
